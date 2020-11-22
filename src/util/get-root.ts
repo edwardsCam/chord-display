@@ -1,9 +1,10 @@
 import { Note } from '../types/note'
 import { Natural } from '../types/natural'
 import getAccidental from './get-accidental'
+import normalizeNote from './normalize-note'
 
 const getNatural = (n: string): Natural => {
-  switch (n) {
+  switch (n.toLowerCase()) {
     case 'a':
       return Natural.a
     case 'b':
@@ -21,9 +22,10 @@ const getNatural = (n: string): Natural => {
   }
 }
 
-const getRoot = (chordName: string): Note => ({
-  natural: getNatural(chordName[0]),
-  accidental: getAccidental(chordName),
-})
+const getRoot = (chordName: string): Note =>
+  normalizeNote({
+    natural: getNatural(chordName[0]),
+    accidental: getAccidental(chordName),
+  })
 
 export default getRoot

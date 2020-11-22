@@ -1,7 +1,7 @@
 import { Chord } from '../types/chord'
 import { ChordType } from '../types/chord-type'
 import { Note } from '../types/note'
-import increment from './increment'
+import { increment } from './increment'
 
 const getNotes = (chord: Chord): Note[] => {
   const { root, type } = chord

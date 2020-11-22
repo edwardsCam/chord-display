@@ -1,15 +1,16 @@
 import { ChordType } from '../types/chord-type'
 import getAccidental from './get-accidental'
 
-const getChordType = (chordName: string): ChordType => {
+const getChordType = (chordName: string): ChordType | null => {
   let subStrIndex = 1
   const accidental = getAccidental(chordName)
   if (accidental !== 0) {
     subStrIndex++
   }
   const decorations = chordName.substr(subStrIndex)
+  if (!decorations) return ChordType.maj
 
-  if (decorations.startsWith('min')) {
+  if (decorations === 'm' || decorations.startsWith('min')) {
     return ChordType.min
   }
 
@@ -21,7 +22,7 @@ const getChordType = (chordName: string): ChordType => {
     return ChordType.aug
   }
 
-  return ChordType.maj
+  return null
 }
 
 export default getChordType

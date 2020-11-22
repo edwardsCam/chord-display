@@ -35,7 +35,7 @@ const Key: React.FC<Props> = ({
 
   const getBackgroundColor = (): string => {
     if (highlighted) return HIGHLIGHTED_COLOR
-    if (isHovered) return HOVER_COLOR
+    // if (isHovered) return HOVER_COLOR
     return white ? 'white' : 'black'
   }
 

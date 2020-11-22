@@ -1,4 +1,4 @@
-import increment from '../increment'
+import { increment } from '../increment'
 import { Note } from '../../types/note'
 import { Natural } from '../../types/natural'
 import { Accidental } from '../../types/accidental'
