@@ -30,4 +30,8 @@
     "dist",
     "node_modules"
   ],
+  "types": [
+    "node",
+    "react-emotion"
+  ]
 }
