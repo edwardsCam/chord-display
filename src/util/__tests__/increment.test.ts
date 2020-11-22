@@ -21,15 +21,15 @@ const c: Note = {
   accidental: 0,
 }
 
-describe('util::increment', function() {
-  it('returns the note itself if you increment by 0', function() {
+describe('util::increment', function () {
+  it('returns the note itself if you increment by 0', function () {
     expect(increment(a, 0)).toEqual(a)
     expect(increment(aSharp, 0)).toEqual(aSharp)
     expect(increment(aFlat, 0)).toEqual(aFlat)
     expect(increment(c, 0)).toEqual(c)
   })
 
-  describe('positive increments', function() {})
+  describe('positive increments', function () {})
 
-  describe('negative increments', function() {})
+  describe('negative increments', function () {})
 })

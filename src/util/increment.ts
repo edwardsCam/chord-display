@@ -9,7 +9,10 @@ const increment = (note: Note, n: number): Note => {
 
   while (counter > 0) {
     newAccidental++
-    if (newAccidental === 1 && (newNatural === 1 || newNatural === 4)) {
+    if (
+      newAccidental === 1 &&
+      (newNatural === Natural.b || newNatural === Natural.e)
+    ) {
       // B or E
       incrementWholeStep()
     } else if (newAccidental > 1) {
@@ -26,7 +29,7 @@ const increment = (note: Note, n: number): Note => {
   function incrementWholeStep() {
     newAccidental = 0
     newNatural++
-    while (newNatural > 6) newNatural -= 7
+    while (newNatural > Natural.g) newNatural -= 7
   }
 }
 

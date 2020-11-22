@@ -24,7 +24,7 @@ module.exports = {
       path.resolve('src'),
       path.resolve('node_modules'),
     ],
-    extensions: ['.ts', '.d.ts']
+    extensions: ['.js', '.ts']
   },
   devtool: 'eval-source-map',
   stats: {

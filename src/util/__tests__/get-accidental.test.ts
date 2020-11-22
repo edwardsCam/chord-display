@@ -1,7 +1,7 @@
 import getAccidental from '../get-accidental'
 
-describe('util::getAccidental', function() {
-  it('returns 1 if the second char is #', function() {
+describe('util::getAccidental', function () {
+  it('returns 1 if the second char is #', function () {
     expect(getAccidental('a#')).toBe(1)
     expect(getAccidental('b#')).toBe(1)
     expect(getAccidental('c#')).toBe(1)
@@ -16,22 +16,22 @@ describe('util::getAccidental', function() {
     expect(getAccidental('c#aug')).toBe(1)
   })
 
-  it('returns -1 if it has (b) after the first char', function() {
-    expect(getAccidental('a(b)')).toBe(-1)
-    expect(getAccidental('b(b)')).toBe(-1)
-    expect(getAccidental('c(b)')).toBe(-1)
-    expect(getAccidental('d(b)')).toBe(-1)
-    expect(getAccidental('e(b)')).toBe(-1)
-    expect(getAccidental('f(b)')).toBe(-1)
-    expect(getAccidental('g(b)')).toBe(-1)
+  it('returns -1 if it has b after the first char', function () {
+    expect(getAccidental('ab')).toBe(-1)
+    expect(getAccidental('bb')).toBe(-1)
+    expect(getAccidental('cb')).toBe(-1)
+    expect(getAccidental('db')).toBe(-1)
+    expect(getAccidental('eb')).toBe(-1)
+    expect(getAccidental('fb')).toBe(-1)
+    expect(getAccidental('gb')).toBe(-1)
 
-    expect(getAccidental('c(b)min')).toBe(-1)
-    expect(getAccidental('c(b)maj')).toBe(-1)
-    expect(getAccidental('c(b)dim')).toBe(-1)
-    expect(getAccidental('c(b)aug')).toBe(-1)
+    expect(getAccidental('cbmin')).toBe(-1)
+    expect(getAccidental('cbmaj')).toBe(-1)
+    expect(getAccidental('cbdim')).toBe(-1)
+    expect(getAccidental('cbaug')).toBe(-1)
   })
 
-  it('returns 0 if there are no accidentals', function() {
+  it('returns 0 if there are no accidentals', function () {
     expect(getAccidental('a')).toBe(0)
     expect(getAccidental('b')).toBe(0)
     expect(getAccidental('c')).toBe(0)
