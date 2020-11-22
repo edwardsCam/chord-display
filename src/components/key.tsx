@@ -24,6 +24,11 @@ const baseKey = `
   justify-content: flex-end;
 `
 
+const WhiteWrapper = styled.div``
+const BlackWrapper = styled.div`
+  position: relative;
+`
+
 const Key: React.FC<Props> = ({
   highlighted,
   note,
@@ -53,12 +58,15 @@ const Key: React.FC<Props> = ({
         height: 120px;
         background: ${getBackgroundColor()};
         color: white;
+        position: absolute;
+        left: -16px;
       `
       return <BlackKey>{showNote && parsedNote}</BlackKey>
     }
   }
 
-  return <div>{getContent()}</div>
+  const Component = white ? WhiteWrapper : BlackWrapper
+  return <Component>{getContent()}</Component>
 }
 
 export default Key

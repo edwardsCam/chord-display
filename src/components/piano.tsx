@@ -11,7 +11,6 @@ type Props = {}
 
 const Piano: React.FC<Props> = ({}: Props) => {
   const [userInput, onChange] = useState('')
-  debugger
   const chord = parse(userInput)
   return (
     <div>
