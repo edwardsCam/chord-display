@@ -1,8 +1,33 @@
 {
   "compilerOptions": {
-    "moduleResolution": "Node",
-    "downlevelIteration": true
+    "target": "esnext",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "jsx": "react",
+    "noEmit": true,
+    "strict": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "baseUrl": "./",
+    "paths": {
+      "*": [
+        "*",
+        "src/*"
+      ]
+    }
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules/**"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "assets",
+    "coverage",
+    "dist",
+    "node_modules"
+  ],
 }

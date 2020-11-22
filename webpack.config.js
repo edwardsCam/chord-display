@@ -1,17 +1,11 @@
 var path = require('path');
-var webpack = require('webpack');
 
 module.exports = {
-  entry: 'index.ts',
   mode: 'development',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js',
-  },
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader"
@@ -24,7 +18,7 @@ module.exports = {
       path.resolve('src'),
       path.resolve('node_modules'),
     ],
-    extensions: ['.js', '.ts']
+    extensions: ['.js', '.ts', '.tsx']
   },
   devtool: 'eval-source-map',
   stats: {
