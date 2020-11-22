@@ -10,16 +10,28 @@ const getChordType = (chordName: string): ChordType | null => {
   const decorations = chordName.substr(subStrIndex)
   if (!decorations) return ChordType.maj
 
-  if (decorations === 'm' || decorations.startsWith('min')) {
+  if (decorations === 'm' || decorations === 'min') {
     return ChordType.min
   }
 
-  if (decorations.startsWith('dim')) {
+  if (decorations === 'dim') {
     return ChordType.dim
   }
 
-  if (decorations.startsWith('aug')) {
+  if (decorations === 'aug') {
     return ChordType.aug
+  }
+
+  if (decorations === '7') {
+    return ChordType.dominant7
+  }
+
+  if (decorations === 'm7' || decorations === 'min7') {
+    return ChordType.minor7
+  }
+
+  if (decorations === 'maj7') {
+    return ChordType.major7
   }
 
   return null

@@ -3,4 +3,7 @@ export enum ChordType {
   maj,
   dim,
   aug,
+  dominant7,
+  minor7,
+  major7,
 }

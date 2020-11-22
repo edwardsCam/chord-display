@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
 import { Note } from 'types/note'
 import prettyPrint from 'util/pretty-print'
@@ -15,7 +15,6 @@ type Props = CommonProps & {
 }
 
 const HIGHLIGHTED_COLOR = 'green'
-const HOVER_COLOR = 'cyan'
 
 const baseKey = `
   border: 2px solid black;
@@ -31,11 +30,8 @@ const Key: React.FC<Props> = ({
   white,
   showNote = true,
 }: Props) => {
-  const [isHovered, setHover] = useState(false)
-
   const getBackgroundColor = (): string => {
     if (highlighted) return HIGHLIGHTED_COLOR
-    // if (isHovered) return HOVER_COLOR
     return white ? 'white' : 'black'
   }
 
@@ -62,11 +58,7 @@ const Key: React.FC<Props> = ({
     }
   }
 
-  return (
-    <div onMouseOver={() => setHover(true)} onMouseOut={() => setHover(false)}>
-      {getContent()}
-    </div>
-  )
+  return <div>{getContent()}</div>
 }
 
 export default Key

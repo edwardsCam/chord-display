@@ -29,6 +29,24 @@ const getNotes = (chord: Chord): Note[] => {
       result.push(step(8))
       break
     }
+    case ChordType.dominant7: {
+      result.push(step(4))
+      result.push(step(7))
+      result.push(step(10))
+      break
+    }
+    case ChordType.minor7: {
+      result.push(step(3))
+      result.push(step(7))
+      result.push(step(10))
+      break
+    }
+    case ChordType.major7: {
+      result.push(step(4))
+      result.push(step(7))
+      result.push(step(11))
+      break
+    }
   }
   return result
 }
