@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Note } from 'types/note'
+import { Tone } from 'types/note'
 import prettyPrint from 'util/pretty-print'
 
 export type CommonProps = {
   highlighted?: boolean
   showNote?: boolean
   octave: number
-  note: Note
+  note: Tone
 }
 
 type Props = CommonProps & {

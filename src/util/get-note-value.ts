@@ -1,4 +1,4 @@
-import { Note } from 'types/note'
+import { Tone, Note } from 'types/note'
 import { increment } from './increment'
 import normalizeNote from './normalize-note'
 
@@ -8,7 +8,7 @@ const _memo: {
   }
 } = {}
 
-const getMemo = (note: Note): number | null => {
+const getMemo = (note: Tone): number | null => {
   if (_memo[note.natural] && _memo[note.natural][note.accidental]) {
     return _memo[note.natural][note.accidental]
   }
@@ -27,6 +27,7 @@ const getNoteValue = (_note: Note): number => {
   const base: Note = {
     natural: 0,
     accidental: 0,
+    octave: 0,
   }
   let tmp = base
 

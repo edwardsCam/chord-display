@@ -24,6 +24,7 @@ const Octave: React.FC<Props> = ({
     const note: Note = {
       natural: 2,
       accidental: 0,
+      octave,
     }
     return <Key white {...commonProps(note)} />
   }
@@ -32,6 +33,7 @@ const Octave: React.FC<Props> = ({
     const note: Note = {
       natural: 2,
       accidental: 1,
+      octave,
     }
     return <Key white={false} {...commonProps(note)} />
   }
@@ -40,6 +42,7 @@ const Octave: React.FC<Props> = ({
     const note: Note = {
       natural: 3,
       accidental: 0,
+      octave,
     }
     return <Key white {...commonProps(note)} />
   }
@@ -48,6 +51,7 @@ const Octave: React.FC<Props> = ({
     const note: Note = {
       natural: 3,
       accidental: 1,
+      octave,
     }
     return <Key white={false} {...commonProps(note)} />
   }
@@ -56,6 +60,7 @@ const Octave: React.FC<Props> = ({
     const note: Note = {
       natural: 4,
       accidental: 0,
+      octave,
     }
     return <Key white {...commonProps(note)} />
   }
@@ -64,6 +69,7 @@ const Octave: React.FC<Props> = ({
     const note: Note = {
       natural: 5,
       accidental: 0,
+      octave,
     }
     return <Key white {...commonProps(note)} />
   }
@@ -72,6 +78,7 @@ const Octave: React.FC<Props> = ({
     const note: Note = {
       natural: 5,
       accidental: 1,
+      octave,
     }
     return <Key white={false} {...commonProps(note)} />
   }
@@ -80,6 +87,7 @@ const Octave: React.FC<Props> = ({
     const note: Note = {
       natural: 6,
       accidental: 0,
+      octave,
     }
     return <Key white {...commonProps(note)} />
   }
@@ -88,6 +96,7 @@ const Octave: React.FC<Props> = ({
     const note: Note = {
       natural: 6,
       accidental: 1,
+      octave,
     }
     return <Key white={false} {...commonProps(note)} />
   }
@@ -96,6 +105,7 @@ const Octave: React.FC<Props> = ({
     const note: Note = {
       natural: 0,
       accidental: 0,
+      octave,
     }
     return <Key white {...commonProps(note)} />
   }
@@ -104,6 +114,7 @@ const Octave: React.FC<Props> = ({
     const note: Note = {
       natural: 0,
       accidental: 1,
+      octave,
     }
     return <Key white={false} {...commonProps(note)} />
   }
@@ -112,6 +123,7 @@ const Octave: React.FC<Props> = ({
     const note: Note = {
       natural: 1,
       accidental: 0,
+      octave,
     }
     return <Key white {...commonProps(note)} />
   }
@@ -120,6 +132,7 @@ const Octave: React.FC<Props> = ({
     const note: Note = {
       natural: 2,
       accidental: 0,
+      octave,
     }
     return <Key white {...commonProps(note)} />
   }

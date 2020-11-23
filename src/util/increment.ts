@@ -5,6 +5,7 @@ import { Accidental } from '../types/accidental'
 export const increment = (note: Note, n: number): Note => {
   let newNatural: Natural = note.natural
   let newAccidental = note.accidental
+  let newOctave = note.octave
   let counter = n
 
   while (counter > 0) {
@@ -24,18 +25,23 @@ export const increment = (note: Note, n: number): Note => {
   return {
     natural: newNatural,
     accidental: newAccidental as Accidental,
+    octave: newOctave,
   }
 
   function incrementWholeStep() {
     newAccidental = 0
     newNatural++
-    while (newNatural > Natural.g) newNatural -= 7
+    while (newNatural > Natural.g) {
+      newNatural -= 7
+      newOctave++
+    }
   }
 }
 
 export const decrement = (note: Note, n: number): Note => {
   let newNatural: Natural = note.natural
   let newAccidental = note.accidental
+  let newOctave = note.octave
   let counter = n
 
   while (counter > 0) {
@@ -53,11 +59,15 @@ export const decrement = (note: Note, n: number): Note => {
   return {
     natural: newNatural,
     accidental: newAccidental as Accidental,
+    octave: newOctave,
   }
 
   function decrementWholeStep() {
     newAccidental = 0
     newNatural--
-    while (newNatural < Natural.a) newNatural += 7
+    while (newNatural < Natural.a) {
+      newNatural += 7
+      newOctave--
+    }
   }
 }

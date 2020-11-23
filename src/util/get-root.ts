@@ -1,4 +1,4 @@
-import { Note } from '../types/note'
+import { Tone } from '../types/note'
 import { Natural } from '../types/natural'
 import getAccidental from './get-accidental'
 import normalizeNote from './normalize-note'
@@ -23,14 +23,14 @@ const getNatural = (n: string): Natural | null => {
   return null
 }
 
-const getRoot = (chordName: string): Note | null => {
+const getRoot = (chordName: string): Tone | null => {
   const natural = getNatural(chordName[0])
-  return natural
-    ? normalizeNote({
+  return natural == null
+    ? null
+    : normalizeNote({
         natural,
         accidental: getAccidental(chordName),
       })
-    : null
 }
 
 export default getRoot

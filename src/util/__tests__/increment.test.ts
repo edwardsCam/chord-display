@@ -4,19 +4,23 @@ import { Note } from '../../types/note'
 const a: Note = {
   natural: 0,
   accidental: 0,
+  octave: 0,
 }
 const aSharp: Note = {
   natural: 0,
   accidental: 1,
+  octave: 0,
 }
 const aFlat: Note = {
   natural: 0,
   accidental: -1,
+  octave: 0,
 }
 
 const c: Note = {
   natural: 2,
   accidental: 0,
+  octave: 0,
 }
 
 describe('util::increment', function () {

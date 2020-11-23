@@ -10,7 +10,10 @@ const getChord = (chordName: string): Chord | null => {
   if (type == null) return null
 
   return {
-    root,
+    root: {
+      ...root,
+      octave: 0,
+    },
     type,
   }
 }
