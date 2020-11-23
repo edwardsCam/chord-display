@@ -1,14 +1,14 @@
 import { Natural } from '../types/natural'
 import { Tone } from '../types/note'
 
-const prettyPrint = (note: Tone): string => {
+const prettyPrint = (tone: Tone): string => {
   let accidental = ''
-  if (note.accidental === 1) {
+  if (tone.accidental === 1) {
     accidental = '#'
-  } else if (note.accidental === -1) {
+  } else if (tone.accidental === -1) {
     accidental = '(b)'
   }
-  return Natural[note.natural] + accidental + ' '
+  return Natural[tone.natural] + accidental + ' '
 }
 
 export default prettyPrint

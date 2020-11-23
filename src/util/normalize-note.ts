@@ -1,26 +1,26 @@
 import { Note, Tone } from 'types/note'
 import { increment, decrement } from './increment'
 
-const normalizeNote = (note: Tone): Tone => {
-  if (note.accidental === 0) return note
+const normalizeNote = (tone: Tone): Tone => {
+  if (tone.accidental === 0) return tone
 
-  if (note.accidental === 1) {
-    if ([1, 4].includes(note.natural)) {
+  if (tone.accidental === 1) {
+    if ([1, 4].includes(tone.natural)) {
       return {
-        natural: note.natural + 1,
+        natural: tone.natural + 1,
         accidental: 0,
       }
     }
-    return note
+    return tone
   }
 
   const pureNatural: Note = {
-    natural: note.natural,
+    natural: tone.natural,
     accidental: 0,
     octave: 0,
   }
-  if (note.accidental < 0) {
-    const decremented = decrement(pureNatural, Math.abs(note.accidental))
+  if (tone.accidental < 0) {
+    const decremented = decrement(pureNatural, Math.abs(tone.accidental))
     if (decremented.accidental < 0) {
       if ([0, 1, 3, 4, 6].includes(decremented.natural)) {
         let natural = decremented.natural - 1
@@ -35,7 +35,7 @@ const normalizeNote = (note: Tone): Tone => {
     }
     return decremented
   } else {
-    return increment(pureNatural, note.accidental)
+    return increment(pureNatural, tone.accidental)
   }
 }
 

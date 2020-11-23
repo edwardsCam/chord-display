@@ -20,6 +20,7 @@ const Piano: React.FC<Props> = ({}: Props) => {
       </label>
       <PianoWrapper>
         <Octave base={0} notes={chord} />
+        <Octave base={1} notes={chord} complete />
       </PianoWrapper>
     </div>
   )

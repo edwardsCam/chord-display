@@ -1,8 +1,7 @@
 import { Note } from 'types/note'
-import getNoteValue from './get-note-value'
+import areSameTone from './are-same-tone'
 
-const areSameNote = (note1: Note, note2: Note): boolean => {
-  return getNoteValue(note1) === getNoteValue(note2)
-}
+const areSameNote = (note1: Note, note2: Note): boolean =>
+  areSameTone(note1, note2) && note1.octave === note2.octave
 
 export default areSameNote

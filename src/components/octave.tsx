@@ -16,7 +16,7 @@ const Octave: React.FC<Props> = ({
 }: Props) => {
   const commonProps = (note: Note) => ({
     octave,
-    note,
+    tone: note,
     highlighted: notes.some((n) => areSameNote(note, n)),
   })
 
@@ -128,17 +128,20 @@ const Octave: React.FC<Props> = ({
     return <Key white {...commonProps(note)} />
   }
 
-  const renderHighC = () => {
+  const renderHighA = () => {
     const note: Note = {
-      natural: 2,
+      natural: 0,
       accidental: 0,
-      octave,
+      octave: octave + 1,
     }
     return <Key white {...commonProps(note)} />
   }
 
   return (
     <>
+      {renderA()}
+      {renderASharp()}
+      {renderB()}
       {renderC()}
       {renderCSharp()}
       {renderD()}
@@ -148,10 +151,7 @@ const Octave: React.FC<Props> = ({
       {renderFSharp()}
       {renderG()}
       {renderGSharp()}
-      {renderA()}
-      {renderASharp()}
-      {renderB()}
-      {complete && renderHighC()}
+      {complete && renderHighA()}
     </>
   )
 }

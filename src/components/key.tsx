@@ -7,7 +7,7 @@ export type CommonProps = {
   highlighted?: boolean
   showNote?: boolean
   octave: number
-  note: Tone
+  tone: Tone
 }
 
 type Props = CommonProps & {
@@ -31,7 +31,7 @@ const BlackWrapper = styled.div`
 
 const Key: React.FC<Props> = ({
   highlighted,
-  note,
+  tone,
   white,
   showNote = true,
 }: Props) => {
@@ -41,7 +41,7 @@ const Key: React.FC<Props> = ({
   }
 
   const getContent = () => {
-    const parsedNote = prettyPrint(note)
+    const parsedNote = prettyPrint(tone)
     if (white) {
       const WhiteKey = styled.span`
         ${baseKey};

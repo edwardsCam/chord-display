@@ -8,15 +8,15 @@ const _memo: {
   }
 } = {}
 
-const getMemo = (note: Tone): number | null => {
-  if (_memo[note.natural] && _memo[note.natural][note.accidental]) {
-    return _memo[note.natural][note.accidental]
+const getMemo = (tone: Tone): number | null => {
+  if (_memo[tone.natural] && _memo[tone.natural][tone.accidental]) {
+    return _memo[tone.natural][tone.accidental]
   }
   return null
 }
 
-const getNoteValue = (_note: Note): number => {
-  const note = normalizeNote(_note)
+const getToneValue = (tone: Tone): number => {
+  const note = normalizeNote(tone)
 
   const memoized = getMemo(note)
   if (memoized != null) {
@@ -40,4 +40,4 @@ const getNoteValue = (_note: Note): number => {
   return result
 }
 
-export default getNoteValue
+export default getToneValue
