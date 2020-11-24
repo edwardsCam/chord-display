@@ -1,10 +1,12 @@
 import React from 'react'
-import Key from 'components/key'
+import Key, { Props as KeyProps } from 'components/key'
 import { Note } from 'types/note'
+import { OnSelectKey } from 'types/on-select-key'
 import areSameNote from 'util/are-same-note'
 
 type Props = {
   base: number
+  onSelect?: OnSelectKey
   complete?: boolean
   notes?: Note[]
 }
@@ -13,11 +15,14 @@ const Octave: React.FC<Props> = ({
   base: octave,
   complete,
   notes = [],
+  onSelect,
 }: Props) => {
-  const commonProps = (note: Note) => ({
+  const keyProps = (note: Note, white: boolean): KeyProps => ({
+    white,
     octave,
-    tone: note,
+    note,
     highlighted: notes.some((n) => areSameNote(note, n)),
+    onSelect: (note) => onSelect && onSelect(note),
   })
 
   const renderC = () => {
@@ -26,7 +31,7 @@ const Octave: React.FC<Props> = ({
       accidental: 0,
       octave,
     }
-    return <Key white {...commonProps(note)} />
+    return <Key {...keyProps(note, true)} />
   }
 
   const renderCSharp = () => {
@@ -35,7 +40,7 @@ const Octave: React.FC<Props> = ({
       accidental: 1,
       octave,
     }
-    return <Key white={false} {...commonProps(note)} />
+    return <Key {...keyProps(note, false)} />
   }
 
   const renderD = () => {
@@ -44,7 +49,7 @@ const Octave: React.FC<Props> = ({
       accidental: 0,
       octave,
     }
-    return <Key white {...commonProps(note)} />
+    return <Key {...keyProps(note, true)} />
   }
 
   const renderDSharp = () => {
@@ -53,7 +58,7 @@ const Octave: React.FC<Props> = ({
       accidental: 1,
       octave,
     }
-    return <Key white={false} {...commonProps(note)} />
+    return <Key {...keyProps(note, false)} />
   }
 
   const renderE = () => {
@@ -62,7 +67,7 @@ const Octave: React.FC<Props> = ({
       accidental: 0,
       octave,
     }
-    return <Key white {...commonProps(note)} />
+    return <Key {...keyProps(note, true)} />
   }
 
   const renderF = () => {
@@ -71,7 +76,7 @@ const Octave: React.FC<Props> = ({
       accidental: 0,
       octave,
     }
-    return <Key white {...commonProps(note)} />
+    return <Key {...keyProps(note, true)} />
   }
 
   const renderFSharp = () => {
@@ -80,7 +85,7 @@ const Octave: React.FC<Props> = ({
       accidental: 1,
       octave,
     }
-    return <Key white={false} {...commonProps(note)} />
+    return <Key {...keyProps(note, false)} />
   }
 
   const renderG = () => {
@@ -89,7 +94,7 @@ const Octave: React.FC<Props> = ({
       accidental: 0,
       octave,
     }
-    return <Key white {...commonProps(note)} />
+    return <Key {...keyProps(note, true)} />
   }
 
   const renderGSharp = () => {
@@ -98,7 +103,7 @@ const Octave: React.FC<Props> = ({
       accidental: 1,
       octave,
     }
-    return <Key white={false} {...commonProps(note)} />
+    return <Key {...keyProps(note, false)} />
   }
 
   const renderA = () => {
@@ -107,7 +112,7 @@ const Octave: React.FC<Props> = ({
       accidental: 0,
       octave,
     }
-    return <Key white {...commonProps(note)} />
+    return <Key {...keyProps(note, true)} />
   }
 
   const renderASharp = () => {
@@ -116,7 +121,7 @@ const Octave: React.FC<Props> = ({
       accidental: 1,
       octave,
     }
-    return <Key white={false} {...commonProps(note)} />
+    return <Key {...keyProps(note, false)} />
   }
 
   const renderB = () => {
@@ -125,7 +130,7 @@ const Octave: React.FC<Props> = ({
       accidental: 0,
       octave,
     }
-    return <Key white {...commonProps(note)} />
+    return <Key {...keyProps(note, true)} />
   }
 
   const renderHighA = () => {
@@ -134,7 +139,7 @@ const Octave: React.FC<Props> = ({
       accidental: 0,
       octave: octave + 1,
     }
-    return <Key white {...commonProps(note)} />
+    return <Key {...keyProps(note, true)} />
   }
 
   return (

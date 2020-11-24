@@ -1,16 +1,18 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Tone } from 'types/note'
+import { Tone, Note } from 'types/note'
+import { OnSelectKey } from 'types/on-select-key'
 import prettyPrint from 'util/pretty-print'
 
 export type CommonProps = {
+  onSelect?: OnSelectKey
   highlighted?: boolean
   showNote?: boolean
   octave: number
-  tone: Tone
+  note: Tone | Note
 }
 
-type Props = CommonProps & {
+export type Props = CommonProps & {
   white: boolean
 }
 
@@ -31,9 +33,10 @@ const BlackWrapper = styled.div`
 
 const Key: React.FC<Props> = ({
   highlighted,
-  tone,
+  note,
   white,
   showNote = true,
+  onSelect,
 }: Props) => {
   const getBackgroundColor = (): string => {
     if (highlighted) return HIGHLIGHTED_COLOR
@@ -41,7 +44,7 @@ const Key: React.FC<Props> = ({
   }
 
   const getContent = () => {
-    const parsedNote = prettyPrint(tone)
+    const parsedNote = prettyPrint(note)
     if (white) {
       const WhiteKey = styled.span`
         ${baseKey};
@@ -66,7 +69,23 @@ const Key: React.FC<Props> = ({
   }
 
   const Component = white ? WhiteWrapper : BlackWrapper
-  return <Component>{getContent()}</Component>
+  return (
+    <Component
+      onClick={
+        onSelect
+          ? () => {
+              debugger
+              onSelect({
+                ...note,
+                octave: 'octave' in note ? note.octave : 0,
+              })
+            }
+          : undefined
+      }
+    >
+      {getContent()}
+    </Component>
+  )
 }
 
 export default Key

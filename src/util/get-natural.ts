@@ -1,6 +1,6 @@
 import { Natural } from '../types/natural'
 
-const getNatural = (n: string): Natural | null => {
+export const getNatural = (n: string): Natural | null => {
   switch (n.toLowerCase()) {
     case 'a':
       return Natural.a
@@ -20,4 +20,21 @@ const getNatural = (n: string): Natural | null => {
   return null
 }
 
-export default getNatural
+export const getNaturalName = (n: Natural): string => {
+  switch (n) {
+    case Natural.a:
+      return 'A'
+    case Natural.b:
+      return 'B'
+    case Natural.c:
+      return 'C'
+    case Natural.d:
+      return 'D'
+    case Natural.e:
+      return 'E'
+    case Natural.f:
+      return 'F'
+    case Natural.g:
+      return 'G'
+  }
+}

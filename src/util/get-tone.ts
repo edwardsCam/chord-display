@@ -1,7 +1,7 @@
 import { Tone } from 'types/note'
 import getAccidental from './get-accidental'
 import normalizeNote from './normalize-note'
-import getNatural from './get-natural'
+import { getNatural } from './get-natural'
 
 const getTone = (str: string): Tone | null => {
   const natural = getNatural(str[0])
