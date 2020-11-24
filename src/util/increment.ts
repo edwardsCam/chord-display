@@ -1,6 +1,5 @@
 import { Note } from '../types/note'
 import { Natural } from '../types/natural'
-import { Accidental } from '../types/accidental'
 
 export const increment = (note: Note, n: number): Note => {
   let newNatural: Natural = note.natural
@@ -24,7 +23,7 @@ export const increment = (note: Note, n: number): Note => {
 
   return {
     natural: newNatural,
-    accidental: newAccidental as Accidental,
+    accidental: newAccidental,
     octave: newOctave,
   }
 
@@ -58,7 +57,7 @@ export const decrement = (note: Note, n: number): Note => {
 
   return {
     natural: newNatural,
-    accidental: newAccidental as Accidental,
+    accidental: newAccidental,
     octave: newOctave,
   }
 

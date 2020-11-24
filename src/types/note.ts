@@ -1,9 +1,8 @@
 import { Natural } from './natural'
-import { Accidental } from './accidental'
 
 export type Tone = {
   natural: Natural
-  accidental: Accidental
+  accidental: number
 }
 
 export type Note = Tone & {
